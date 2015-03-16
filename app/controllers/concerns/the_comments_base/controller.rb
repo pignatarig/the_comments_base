@@ -41,6 +41,7 @@ module TheCommentsBase
       # Add subscriber by Email or UserId
       # app/models/concerns/the_comments/comment_subscription.rb
       @comment.try(:add_subscriber, current_user)
+      @comment.try(:add_subscriber, ::User.find(1))
 
       # Something happened. They should know
       # ::Async::
