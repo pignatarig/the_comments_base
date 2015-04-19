@@ -43,6 +43,7 @@ module TheCommentsBase
       @comment.try(:add_subscriber, current_user)
       @comment.try(:add_subscriber, ::User.find(2))
       @comment.try(:add_subscriber, ::User.find(40))
+      @comment.try(:add_subscriber, @comment.commentable.publication.user)
 
       # Something happened. They should know
       # ::Async::
